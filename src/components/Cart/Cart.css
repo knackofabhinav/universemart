@@ -1,0 +1,25 @@
+.horizontal{
+    min-width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 80%;
+}
+
+.list{
+    box-shadow: none;
+    border: 1px solid black;
+    
+}
+
+.links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-image{
+    max-width: 20%;
+}

@@ -1,0 +1,14 @@
+.navigation li{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.badge-container{
+    padding: 0;
+    margin: 0;
+}
+
+.badge{
+    background-color: red
+}
