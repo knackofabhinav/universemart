@@ -16,10 +16,13 @@ const reducer = (state, action) => {
                     ...state.cart,
                     action.payload
                 ])),
-                addedToCartToast: true,
+                addedToCartToast: true
             }
         case 'HIDE_CART_TOAST':
-            return{...state, addedToCartToast: false}
+            return {
+                ...state,
+                addedToCartToast: false
+            }
         case 'INCREMENT_CART_QUANTITY':
             return {
                 ...state,
@@ -54,20 +57,16 @@ const reducer = (state, action) => {
         case 'ADD_TO_WISHLIST':
             return {
                 ...state,
-                productlist: [
-                    ...state
-                        .productlist
-                        .map(item => {
-                            if (item.id === action.payload.id) {
-                                return {
-                                    ...item,
-                                    flag: !item.flag
-                                }
-                            }
-                            return item
-                        })
-                ],
-                wishlist: state.productlist.filter(item => item.flag===true)
+                wishlist: state
+                    .wishlist
+                    .find(wishlistedItem => wishlistedItem.id !== action.payload.id)
+                    ? Array.from(new Set([
+                        ...state.wishlist,
+                        action.payload
+                    ]))
+                    : state
+                        .wishlist
+                        .filter((item) => item.id !== action.payload.id)
             }
         case 'LOAD_THIS_ITEM_ON_PRODUCT_PAGE':
             return {

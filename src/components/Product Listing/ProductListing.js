@@ -11,7 +11,7 @@ export const ProductListing = () => {
         isDark
     } = useTheme()
     const {state: {
-            productlist, addedToCartToast, cart
+            productlist, addedToCartToast, cart, wishlist
         }, dispatch} = useDataContext()
     return (
         <div style={isDark
@@ -35,7 +35,7 @@ export const ProductListing = () => {
                                     e.stopPropagation()
                                     dispatch({type: "ADD_TO_WISHLIST", payload: item})
                                 }}>
-                                    {item.flag
+                                    {wishlist.find((wishlistProduct) => wishlistProduct.id === item.id)
                                         ? <i className="fas fa-heart"></i>
                                         : <i className="far fa-heart"></i>}
                                 </button>

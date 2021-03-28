@@ -28,16 +28,16 @@ export const Wishlist = () => {
                                     e.stopPropagation()
                                     dispatch({type: "ADD_TO_WISHLIST", payload: item})
                                 }}>
-                                    {item.flag
-                                        ? <i className="fas fa-heart"></i>
-                                        : <i className="far fa-heart"></i>}
+                                {wishlist.find((wishlistProduct) => wishlistProduct.id === item.id)
+                                    ? <i className="fas fa-heart"></i>
+                                    : <i className="far fa-heart"></i>}
                                 </button>
                             </div>
                             <h2 className="name">{item.name}</h2>
                             <p className="price">₹ {item.price}/-</p>
                             {cart.find((cartItem) => cartItem.id===item.id)
                                 ?
-                                <button className="btn primary" 
+                                <button className="btn secondary" 
                                 onClick={(e) => {
                                     e.stopPropagation()
                                     dispatch({type: "CHANGE_ROUTE_TO_CART"})
