@@ -1,8 +1,6 @@
-import {useEffect} from "react"
 import {useDataContext} from "../../contexts/dataContext"
 import "./ProductListing.css"
 import {useTheme} from '../../contexts/theme-context'
-const axios = require('axios');
 
 export const ProductListing = () => {
     const {
@@ -10,24 +8,11 @@ export const ProductListing = () => {
             dark,
             light
         },
-        isDark,
-        setIsDark
+        isDark
     } = useTheme()
     const {state: {
-            productlist
+            productlist, addedToCartToast
         }, dispatch} = useDataContext()
-
-    useEffect(() => {
-        (async() => {
-            try {
-                const dataFromServer = await axios.get('/api/productlist')
-                dispatch({type: 'ADDING_DATA_TO_PRODUCTLIST', payload: dataFromServer.data.productlist})
-            } catch (error) {
-                console.log(error)
-            }
-
-        })()
-    }, [])
 
     return (
         <div style={isDark
@@ -36,22 +21,38 @@ export const ProductListing = () => {
             <ul className='cardlisting'>
                 {productlist.map((item) => {
                     return (
-                        <div className="card">
+                        <div
+                            className="card"
+                            style={isDark
+                            ? dark
+                            : light}
+                            onClick={() => dispatch({type: 'LOAD_THIS_ITEM_ON_PRODUCT_PAGE', payload: item})}>
                             <div className="thumbnail">
                                 <img className='image' src={item.image} alt='product'/>
-                                <button className="close">
-                                    <i class="far fa-heart"></i>
+                                <button
+                                    className="close"
+                                    onClick={(e) => {
+                                    e.stopPropagation()
+                                    dispatch({type: 'ADD_TO_WISHLIST', payload: item})
+                                }}>
+                                    {item.flag
+                                        ? <i className="fas fa-heart"></i>
+                                        : <i class="far fa-heart"></i>}
                                 </button>
                             </div>
                             <h2 className="name">{item.name}</h2>
                             <p className='price'>₹ {item.price}/-</p>
                             <button
                                 className="btn primary"
-                                onClick={() =>{dispatch({type: 'ADD_TO_CART', payload: item})}}>Add to Cart</button>
+                                onClick={(e) => {
+                                e.stopPropagation()
+                                dispatch({type: 'ADD_TO_CART', payload: item})
+                            }}>Add to Cart</button>
                         </div>
                     )
                 })}
             </ul>
+                {addedToCartToast && <p className='toast-container'>Added To Cart</p>}
         </div>
     )
 }

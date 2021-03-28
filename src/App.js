@@ -1,19 +1,31 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import './App.css';
 import { Cart } from './components/Cart/Cart';
 import {Navigation} from './components/Navigation/Navigation';
 import { ProductListing } from './components/Product Listing/ProductListing';
 import { Wishlist } from './components/Wishlist/Wishlist';
-
+import {ProductPage} from './components/Product Page/ProductPage';
+import { useDataContext } from './contexts/dataContext';
+const axios = require('axios')
 function App() {
-    const [route, setRoute] = useState('products')
-    
+    const {state:{route}, dispatch} = useDataContext()
+   useEffect(() => {
+        (async() => {
+            try {
+                const dataFromServer = await axios.get('/api/productlist')
+                dispatch({type: 'ADDING_DATA_TO_PRODUCTLIST', payload: dataFromServer.data.productlist})
+            } catch (error) {
+                console.log(error)
+            }
+        })()
+    }, [])
     return (
         <div className="App">
-            <Navigation route={route} setRoute={setRoute}/>
-            {route==='products' && <ProductListing />}
+            <Navigation/>
+            {route==='products' && <ProductListing/>}
             {route==='cart' && <Cart/>}
             {route==='wishlist' && <Wishlist />}
+            {route==='productPage' && <ProductPage />}
         </div>
     );
 }

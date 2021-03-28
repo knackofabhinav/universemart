@@ -12,17 +12,11 @@ const reducer = (state, action) => {
         case 'ADD_TO_CART':
             return {
                 ...state,
-                cart: state.cart.length === 0
-                    ? [
-                        ...state.cart,
-                        action.payload
-                    ]
-                    : state
-                        .cart
-                        .map(item => item.id === action.payload.id ? {
-                            ...item,
-                            quantity: item.quantity + 1
-                        } : action.payload)
+                cart: Array.from(new Set([
+                    ...state.cart,
+                    action.payload
+                ])),
+                addedToCartToast: true,
             }
         case 'INCREMENT_CART_QUANTITY':
             return {
@@ -50,9 +44,53 @@ const reducer = (state, action) => {
             }
         case 'REMOVE_ITEM_FROM_CART':
             return {
-                ...state, cart: state.cart.filter((item)=>item.id!==action.payload.id)
+                ...state,
+                cart: state
+                    .cart
+                    .filter((item) => item.id !== action.payload.id)
             }
-        
+        case 'ADD_TO_WISHLIST':
+            return {
+                ...state,
+                productlist: [
+                    ...state
+                        .productlist
+                        .map(item => {
+                            if (item.id === action.payload.id) {
+                                return {
+                                    ...item,
+                                    flag: !item.flag
+                                }
+                            }
+                            return item
+                        })
+                ],
+                wishlist:[
+                    ...state.wishlist,
+                    action.payload
+                ].filter(item => item.flag === true)
+            }
+        case 'LOAD_THIS_ITEM_ON_PRODUCT_PAGE':
+            return {
+                ...state,
+                productPage: action.payload,
+                route: 'productPage'
+            }
+        case 'CHANGE_ROUTE_TO_PRODUCTS':
+            return {
+                ...state,
+                route: 'products'
+            }
+        case 'CHANGE_ROUTE_TO_CART':
+            return {
+                ...state,
+                route: 'cart'
+            }
+        case 'CHANGE_ROUTE_TO_WISHLIST':
+            return {
+                ...state,
+                route: 'wishlist'
+            }
         default:
             break;
     }
@@ -61,7 +99,11 @@ const reducer = (state, action) => {
 
 const initialState = {
     productlist: [],
-    cart: []
+    cart: [],
+    productPage: {},
+    route: 'products',
+    wishlist: [],
+    addedToCartToast: false
 }
 
 export const DataProvider = ({children}) => {
