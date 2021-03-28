@@ -21,8 +21,6 @@
 
 
 .card {
-    /* width: 2em; */
-    /* max-width: 40%; */
     margin: 1rem;
     border: 0.01rem solid black;
     cursor: pointer;
@@ -55,9 +53,6 @@
     bottom: 2em;
     right: 2em;
     background-color: var(--secondary-color);
-    /* height: 2rem; */
-    /* width: 12rem; */
     padding: 1rem;
     border-radius: 2rem;
-    /* border: black 1px solid; */
 }
