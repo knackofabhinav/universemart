@@ -18,6 +18,8 @@ const reducer = (state, action) => {
                 ])),
                 addedToCartToast: true,
             }
+        case 'HIDE_CART_TOAST':
+            return{...state, addedToCartToast: false}
         case 'INCREMENT_CART_QUANTITY':
             return {
                 ...state,

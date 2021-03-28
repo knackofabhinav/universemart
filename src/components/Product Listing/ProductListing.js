@@ -22,6 +22,7 @@ export const ProductListing = () => {
                 {productlist.map((item) => {
                     return (
                         <div
+                            key={item.id}
                             className="card"
                             style={isDark
                             ? dark
@@ -37,7 +38,7 @@ export const ProductListing = () => {
                                 }}>
                                     {item.flag
                                         ? <i className="fas fa-heart"></i>
-                                        : <i class="far fa-heart"></i>}
+                                        : <i className="far fa-heart"></i>}
                                 </button>
                             </div>
                             <h2 className="name">{item.name}</h2>
@@ -46,13 +47,15 @@ export const ProductListing = () => {
                                 className="btn primary"
                                 onClick={(e) => {
                                 e.stopPropagation()
+                                setTimeout(() => {dispatch({type:'HIDE_CART_TOAST'})}, 3000)
                                 dispatch({type: 'ADD_TO_CART', payload: item})
                             }}>Add to Cart</button>
                         </div>
                     )
                 })}
             </ul>
-                {addedToCartToast && <p className='toast-container'>Added To Cart</p>}
+                {addedToCartToast && <p className='toast-container'>Added To Cart</p>} 
+                
         </div>
     )
 }

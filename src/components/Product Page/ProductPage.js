@@ -12,7 +12,6 @@ export const ProductPage = () => {
     const {state: {
             productPage
         }} = useDataContext()
-    console.log(productPage)
     return (
         <div
             className="product-page-container"
@@ -32,7 +31,7 @@ export const ProductPage = () => {
                 {productPage
                     .description
                     .review
-                    .map((item) => <li>{item}</li>)}
+                    .map((item) => <li key={item}>{item}</li>)}
             </ul>
         </div>
     )

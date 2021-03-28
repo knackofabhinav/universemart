@@ -13,7 +13,6 @@ export const Cart = () => {
         },
         isDark
     } = useTheme()
-    console.log(cart)
     return (
         <div
             style={isDark

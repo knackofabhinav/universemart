@@ -11,6 +11,8 @@
 
 .navigation {
     border: none;
+    position: fixed;
+    z-index: 1;
 }
 
 .badge {
