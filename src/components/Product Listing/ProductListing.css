@@ -25,6 +25,7 @@
     margin: 1rem;
     border: 0.01rem solid black;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .thumbnail {

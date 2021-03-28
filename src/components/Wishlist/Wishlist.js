@@ -1,5 +1,6 @@
 import { useDataContext } from "../../contexts/dataContext"
 import { useTheme } from "../../contexts/theme-context"
+import "./Wishlist.css"
 
 export const Wishlist = () => {
     const {theme:{dark, light}, isDark} = useTheme()
@@ -7,7 +8,9 @@ export const Wishlist = () => {
     console.log(wishlist)
     return(
         <div>
-        <ul className="cardlisting">
+        <ul className="cardlisting" style={isDark
+            ? dark
+            : light}>
                 {wishlist.map((item) => {
                     return (
                         <div
