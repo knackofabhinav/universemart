@@ -1,6 +1,6 @@
 import {useDataContext} from "../../contexts/dataContext"
 import "./Cart.css"
-import {useTheme} from '../../contexts/theme-context'
+import {useTheme} from "../../contexts/theme-context"
 
 export const Cart = () => {
     const {state: {
@@ -18,8 +18,8 @@ export const Cart = () => {
             style={isDark
             ? dark
             : light}
-            className='cart-container'>
-            <ul className='cart-list'>
+            className="cart-container">
+            <ul className="cart-list">
                 {cart.map((item) => {
                     return (
                         <li key={item.id}>
@@ -28,8 +28,8 @@ export const Cart = () => {
                                 style={isDark
                                 ? dark
                                 : light}
-                                onClick={() => dispatch({type: 'LOAD_THIS_ITEM_ON_PRODUCT_PAGE', payload: item})}>
-                                <img className='product-image' src={item.image} alt='product'/>
+                                onClick={() => dispatch({type: "LOAD_THIS_ITEM_ON_PRODUCT_PAGE", payload: item})}>
+                                <img className="product-image" src={item.image} alt="product"/>
                                 <div>
                                     <h2>{item.name}</h2>
                                     <h3>₹ {item.price}/-</h3>
@@ -42,24 +42,23 @@ export const Cart = () => {
                                             className="btn primary"
                                             onClick={(e) => {
                                             e.stopPropagation()
-                                            dispatch({type: 'INCREMENT_CART_QUANTITY', payload: item})
+                                            dispatch({type: "INCREMENT_CART_QUANTITY", payload: item})
                                         }}>+</button>{item.quantity}
                                         <button
                                             className="btn primary"
-                                            disabled={item.quantity === 1 && 'true'}
+                                            disabled={item.quantity === 1 ? true : false}
                                             onClick={(e) => {
                                             e.stopPropagation()
-                                            dispatch({type: 'DECREMENT_CART_QUANTITY', payload: item})
+                                            dispatch({type: "DECREMENT_CART_QUANTITY", payload: item})
                                         }}>-</button>
                                     </p>
                                     <button
                                         className="btn secondary text"
                                         onClick={(e) => {
                                         e.stopPropagation()
-                                        dispatch({type: 'REMOVE_ITEM_FROM_CART', payload: item})
+                                        dispatch({type: "REMOVE_ITEM_FROM_CART", payload: item})
                                     }}>Remove</button>
                                 </div>
-
                             </div>
                         </li>
                     )
