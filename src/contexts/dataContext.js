@@ -67,10 +67,11 @@ const reducer = (state, action) => {
                             return item
                         })
                 ],
-                wishlist:[
-                    ...state.wishlist,
-                    action.payload
-                ].filter(item => item.flag === true)
+                wishlist: state.productlist.filter(item => item.flag===true)
+                // [
+                //     ...state.wishlist,
+                //     action.payload
+                // ]
             }
         case 'LOAD_THIS_ITEM_ON_PRODUCT_PAGE':
             return {

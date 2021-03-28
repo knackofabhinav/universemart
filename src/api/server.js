@@ -1,5 +1,5 @@
 import {createServer} from "miragejs";
-import {productlist} from './Products'
+import {productlist} from "./Products"
 
 export function setupMockServer() {
     createServer({

@@ -1,6 +1,6 @@
 import {useDataContext} from "../../contexts/dataContext"
 import "./ProductListing.css"
-import {useTheme} from '../../contexts/theme-context'
+import {useTheme} from "../../contexts/theme-context"
 
 export const ProductListing = () => {
     const {
@@ -13,12 +13,11 @@ export const ProductListing = () => {
     const {state: {
             productlist, addedToCartToast, cart
         }, dispatch} = useDataContext()
-
     return (
         <div style={isDark
             ? dark
             : light}>
-            <ul className='cardlisting'>
+            <ul className="cardlisting">
                 {productlist.map((item) => {
                     return (
                         <div
@@ -27,14 +26,14 @@ export const ProductListing = () => {
                             style={isDark
                             ? dark
                             : light}
-                            onClick={() => dispatch({type: 'LOAD_THIS_ITEM_ON_PRODUCT_PAGE', payload: item})}>
+                            onClick={() => dispatch({type: "LOAD_THIS_ITEM_ON_PRODUCT_PAGE", payload: item})}>
                             <div className="thumbnail">
-                                <img className='image' src={item.image} alt='product'/>
+                                <img className="image" src={item.image} alt="product"/>
                                 <button
                                     className="close"
                                     onClick={(e) => {
                                     e.stopPropagation()
-                                    dispatch({type: 'ADD_TO_WISHLIST', payload: item})
+                                    dispatch({type: "ADD_TO_WISHLIST", payload: item})
                                 }}>
                                     {item.flag
                                         ? <i className="fas fa-heart"></i>
@@ -42,13 +41,13 @@ export const ProductListing = () => {
                                 </button>
                             </div>
                             <h2 className="name">{item.name}</h2>
-                            <p className='price'>₹ {item.price}/-</p>
+                            <p className="price">₹ {item.price}/-</p>
                             {cart.find((cartItem) => cartItem.id===item.id)
                                 ?
-                                <button className="btn primary" 
+                                <button className="btn secondary" 
                                 onClick={(e) => {
                                     e.stopPropagation()
-                                    dispatch({type: 'CHANGE_ROUTE_TO_CART'})
+                                    dispatch({type: "CHANGE_ROUTE_TO_CART"})
                                 }}>
                                             Go To Cart
                                 </button>
@@ -57,15 +56,14 @@ export const ProductListing = () => {
                                 className="btn primary"
                                 onClick={(e) => {
                                 e.stopPropagation()
-                                setTimeout(() => {dispatch({type:'HIDE_CART_TOAST'})}, 3000)
-                                dispatch({type: 'ADD_TO_CART', payload: item})
+                                setTimeout(() => {dispatch({type:"HIDE_CART_TOAST"})}, 3000)
+                                dispatch({type: "ADD_TO_CART", payload: item})
                             }}>Add to Cart</button>}
                         </div>
                     )
                 })}
             </ul>
-                {addedToCartToast && <p className='toast-container'>Added To Cart</p>} 
-                
+                {addedToCartToast && <p className="toast-container">Added To Cart</p>} 
         </div>
     )
 }

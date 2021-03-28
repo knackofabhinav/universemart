@@ -1,6 +1,6 @@
 import {useDataContext} from "../../contexts/dataContext"
 import {useTheme} from "../../contexts/theme-context"
-import './ProductPage.css'
+import "./ProductPage.css"
 export const ProductPage = () => {
     const {
         theme: {
@@ -30,7 +30,7 @@ export const ProductPage = () => {
                 <button className="btn primary" 
                 onClick={(e) => {
                     e.stopPropagation()
-                    dispatch({type: 'CHANGE_ROUTE_TO_CART'})
+                    dispatch({type: "CHANGE_ROUTE_TO_CART"})
                 }}>
                             Go To Cart
                 </button>
@@ -39,8 +39,8 @@ export const ProductPage = () => {
                 className="btn primary"
                 onClick={(e) => {
                 e.stopPropagation()
-                setTimeout(() => {dispatch({type:'HIDE_CART_TOAST'})}, 3000)
-                dispatch({type: 'ADD_TO_CART', payload: productPage})
+                setTimeout(() => {dispatch({type:"HIDE_CART_TOAST"})}, 3000)
+                dispatch({type: "ADD_TO_CART", payload: productPage})
             }}>Add to Cart</button>}
                 <button className="btn secondary">Add To Wishlist</button>
             </div>

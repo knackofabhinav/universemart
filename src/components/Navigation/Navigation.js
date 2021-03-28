@@ -1,8 +1,8 @@
-import './Navigation.css'
-import DarkLogo from '../../assets/Logo/Universe-logo.png'
-import LightLogo from '../../assets/Logo/Universe-logo-white.png'
-import {useTheme} from '../../contexts/theme-context'
-import {useDataContext} from '../../contexts/dataContext'
+import "./Navigation.css"
+import DarkLogo from "../../assets/Logo/Universe-logo.png"
+import LightLogo from "../../assets/Logo/Universe-logo-white.png"
+import {useTheme} from "../../contexts/theme-context"
+import {useDataContext} from "../../contexts/dataContext"
 
 export const Navigation = () => {
     const {dispatch} = useDataContext()
@@ -28,15 +28,15 @@ export const Navigation = () => {
                     src={isDark
                     ? LightLogo
                     : DarkLogo}
-                    alt='logo'/>
+                    alt="logo"/>
             </a>
             <ul>
                 <li
                     onClick={() => {
-                    dispatch({type: 'CHANGE_ROUTE_TO_PRODUCTS'})
+                    dispatch({type: "CHANGE_ROUTE_TO_PRODUCTS"})
                 }}>Products</li>
                 <li onClick={() => {
-                    dispatch({type: 'CHANGE_ROUTE_TO_CART'})
+                    dispatch({type: "CHANGE_ROUTE_TO_CART"})
                 }}>
                     <div className="badge-container">
                         <i className="fas fa-shopping-cart"></i>
@@ -45,7 +45,7 @@ export const Navigation = () => {
                 </li>
                 <li
                     onClick={() => {
-                        dispatch({type: 'CHANGE_ROUTE_TO_WISHLIST'})
+                        dispatch({type: "CHANGE_ROUTE_TO_WISHLIST"})
                 }}>
                     <i className="fas fa-heart"></i>
                 </li>
