@@ -6,6 +6,7 @@ import { ProductListing } from "./components/Product Listing/ProductListing";
 import { Wishlist } from "./components/Wishlist/Wishlist";
 import {ProductPage} from "./components/Product Page/ProductPage";
 import { useDataContext } from "./contexts/dataContext";
+import { Checkout } from "./components/Checkout/Checkout";
 const axios = require("axios")
 function App() {
     const {state:{route}, dispatch} = useDataContext()
@@ -26,6 +27,7 @@ function App() {
             {route==="cart" && <Cart/>}
             {route==="wishlist" && <Wishlist />}
             {route==="productPage" && <ProductPage />}
+            {/*route==="checkout" && <Checkout/>*/}
         </div>
     );
 }

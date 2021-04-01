@@ -57,16 +57,16 @@ const reducer = (state, action) => {
         case 'ADD_TO_WISHLIST':
             return {
                 ...state,
-                wishlist: state
-                    .wishlist
-                    .find(wishlistedItem => wishlistedItem.id !== action.payload.id)
-                    ? Array.from(new Set([
+                wishlist: 
+                    Array.from(new Set([
                         ...state.wishlist,
                         action.payload
                     ]))
-                    : state
-                        .wishlist
-                        .filter((item) => item.id !== action.payload.id)
+            }
+        case 'REMOVE_FROM_WISHLIST':
+            return{
+                ...state,
+                wishlist: state.wishlist.filter(wishlisted => wishlisted.id !== action.payload.id)
             }
         case 'LOAD_THIS_ITEM_ON_PRODUCT_PAGE':
             return {
@@ -89,6 +89,11 @@ const reducer = (state, action) => {
                 ...state,
                 route: 'wishlist'
             }
+        case 'CHANGE_ROUTE_TO_CHECKOUT':
+            return{
+                ...state,
+                route: 'checkout'
+            }
         default:
             break;
     }
@@ -101,7 +106,8 @@ const initialState = {
     productPage: {},
     route: 'products',
     wishlist: [],
-    addedToCartToast: false
+    addedToCartToast: false,
+    totalPrice: 0
 }
 
 export const DataProvider = ({children}) => {

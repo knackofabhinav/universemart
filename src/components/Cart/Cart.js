@@ -19,6 +19,11 @@ export const Cart = () => {
             ? dark
             : light}
             className="cart-container">
+            <h1 className="total-amount">Total Price: ₹ {cart.length > 0
+                    ? cart
+                        .map(item => item.price * item.quantity)
+                        .reduce((a, b) => a + b)
+                    : 0}/-</h1>
             <ul className="cart-list">
                 {cart.map((item) => {
                     return (
@@ -46,7 +51,9 @@ export const Cart = () => {
                                         }}>+</button>{item.quantity}
                                         <button
                                             className="btn primary"
-                                            disabled={item.quantity === 1 ? true : false}
+                                            disabled={item.quantity === 1
+                                            ? true
+                                            : false}
                                             onClick={(e) => {
                                             e.stopPropagation()
                                             dispatch({type: "DECREMENT_CART_QUANTITY", payload: item})
@@ -64,11 +71,10 @@ export const Cart = () => {
                     )
                 })}
             </ul>
-            <h1 className="total-amount">Total Price: ₹ {cart.length > 0
-                    ? cart
-                        .map(item => item.price * item.quantity)
-                        .reduce((a, b) => a + b)
-                    : 0}/-</h1>
+            {/*<button 
+            className="btn primary checkout"
+            onClick={()=>{dispatch({type:"CHANGE_ROUTE_TO_CHECKOUT"})}}
+            >Checkout</button>*/}
         </div>
     )
 }

@@ -4,7 +4,7 @@ import "./Wishlist.css"
 
 export const Wishlist = () => {
     const {theme:{dark, light}, isDark} = useTheme()
-    const {state:{wishlist, cart}, dispatch} = useDataContext()
+    const {state:{wishlist,addedToCartToast, cart}, dispatch} = useDataContext()
     console.log(wishlist)
     return(
         <div>
@@ -26,11 +26,10 @@ export const Wishlist = () => {
                                     className="close"
                                     onClick={(e) => {
                                     e.stopPropagation()
-                                    dispatch({type: "ADD_TO_WISHLIST", payload: item})
+                                    dispatch({type: "REMOVE_FROM_WISHLIST", payload: item})
+                                    console.log(wishlist)
                                 }}>
-                                {wishlist.find((wishlistProduct) => wishlistProduct.id === item.id)
-                                    ? <i className="fas fa-heart"></i>
-                                    : <i className="far fa-heart"></i>}
+                                X
                                 </button>
                             </div>
                             <h2 className="name">{item.name}</h2>
@@ -56,6 +55,7 @@ export const Wishlist = () => {
                     )
                 })}
             </ul>
+            {addedToCartToast && <p className="toast-container">Added To Cart</p>} 
         </div>
     )
 }

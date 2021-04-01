@@ -12,13 +12,16 @@
     /* border: 1px solid black; */
 }
 
+.total-amount{
+    margin: 1rem;
+}
+
 .cart-container {
     min-height: 90vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    margin-top: 10vh;
+    margin-top: 10vh
 }
 
 .links {
@@ -36,4 +39,9 @@
 
 .cart-list {
     list-style: none;
+}
+
+.checkout{
+    padding: 1rem;
+    margin: 1rem;
 }
