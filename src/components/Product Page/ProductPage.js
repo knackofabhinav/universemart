@@ -42,7 +42,11 @@ export const ProductPage = () => {
                 setTimeout(() => {dispatch({type:"HIDE_CART_TOAST"})}, 3000)
                 dispatch({type: "ADD_TO_CART", payload: productPage})
             }}>Add to Cart</button>}
-                <button className="btn secondary">Add To Wishlist</button>
+                <button className="btn secondary"
+                onClick={() => {
+                    dispatch({type: "ADD_TO_WISHLIST", payload: productPage})
+                }}
+                >Add To Wishlist</button>
             </div>
             <h2 className="product-name">Product Description</h2>
             <h3 className="product-name">Author:</h3> <p className="product-name">{productPage.description.author.name}</p>

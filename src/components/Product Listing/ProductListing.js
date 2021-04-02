@@ -11,7 +11,7 @@ export const ProductListing = () => {
         isDark
     } = useTheme()
     const {state: {
-            productlist, addedToCartToast, cart, wishlist
+            productlist, addedToCartToast, addedToWishlistToast, cart, wishlist
         }, dispatch} = useDataContext()
     return (
         <div style={isDark
@@ -32,8 +32,9 @@ export const ProductListing = () => {
                                 <button
                                     className="close"
                                     onClick={(e) => {
-                                    e.stopPropagation()
+                                    e.stopPropagation() 
                                     dispatch({type: "ADD_TO_WISHLIST", payload: item})
+                                    setTimeout(() => {dispatch({type:"HIDE_WISHLIST_TOAST"})}, 3000)
                                 }}>
                                     {wishlist.find((wishlistProduct) => wishlistProduct.id === item.id)
                                         ? <i className="fas fa-heart"></i>
@@ -46,7 +47,7 @@ export const ProductListing = () => {
                                 ?
                                 <button className="btn secondary" 
                                 onClick={(e) => {
-                                    e.stopPropagation()
+                                    e.stopPropagation() 
                                     dispatch({type: "CHANGE_ROUTE_TO_CART"})
                                 }}>
                                             Go To Cart
@@ -55,7 +56,7 @@ export const ProductListing = () => {
                                 <button
                                 className="btn primary"
                                 onClick={(e) => {
-                                e.stopPropagation()
+                                e.stopPropagation() 
                                 setTimeout(() => {dispatch({type:"HIDE_CART_TOAST"})}, 3000)
                                 dispatch({type: "ADD_TO_CART", payload: item})
                             }}>Add to Cart</button>}
@@ -64,6 +65,7 @@ export const ProductListing = () => {
                 })}
             </ul>
                 {addedToCartToast && <p className="toast-container">Added To Cart</p>} 
+                {addedToWishlistToast && <p className="toast-container">Added To Wishlist</p>}
         </div>
     )
 }

@@ -11,6 +11,7 @@
 }
 
 .App{
+  border: none;
   display: flex;
   /* justify-content: center; */
   flex-direction: column;

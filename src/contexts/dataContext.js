@@ -61,7 +61,14 @@ const reducer = (state, action) => {
                     Array.from(new Set([
                         ...state.wishlist,
                         action.payload
-                    ]))
+                    ])),
+                addedToWishlistToast: true
+                
+            }
+        case 'HIDE_WISHLIST_TOAST':
+            return {
+                ...state,
+                addedToWishlistToast: false
             }
         case 'REMOVE_FROM_WISHLIST':
             return{
@@ -107,7 +114,8 @@ const initialState = {
     route: 'products',
     wishlist: [],
     addedToCartToast: false,
-    totalPrice: 0
+    totalPrice: 0,
+    addedToWishlistToast: false
 }
 
 export const DataProvider = ({children}) => {
