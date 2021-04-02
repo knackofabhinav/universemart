@@ -5,7 +5,6 @@ import "./Wishlist.css"
 export const Wishlist = () => {
     const {theme:{dark, light}, isDark} = useTheme()
     const {state:{wishlist,addedToCartToast, cart}, dispatch} = useDataContext()
-    console.log(wishlist)
     return(
         <div>
         <ul className="cardlisting" style={isDark
