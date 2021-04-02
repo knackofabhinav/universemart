@@ -26,7 +26,6 @@ export const Wishlist = () => {
                                     onClick={(e) => {
                                     e.stopPropagation()
                                     dispatch({type: "REMOVE_FROM_WISHLIST", payload: item})
-                                    console.log(wishlist)
                                 }}>
                                 X
                                 </button>
