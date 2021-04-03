@@ -18,7 +18,7 @@ export const ProductListing = () => {
             ? dark
             : light} className="container">
             <fieldset>
-                <legend>Sort By</legend>
+                <legend>Sort By Price</legend>
                     <label>
                         <input
                         type="radio"
