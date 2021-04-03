@@ -6,7 +6,7 @@ export const Wishlist = () => {
     const {theme:{dark, light}, isDark} = useTheme()
     const {state:{wishlist,addedToCartToast, cart}, dispatch} = useDataContext()
     return(
-        <div>
+        <div className="container">
         <ul className="cardlisting" style={isDark
             ? dark
             : light}>

@@ -7,6 +7,8 @@ export const productlist = [
                 "200_QL40_FMwebp_.jpg",
         url: "https://www.amazon.in/Sapiens-Humankind-Yuval-Noah-Harari/dp/0099590085",
         quantity: 1,
+        inStock: true,
+        fastDelivery: false,
         description: {
             author: {
                 name: 'Yuval Noah Harari',
@@ -22,6 +24,8 @@ export const productlist = [
                 "200_QL40_FMwebp_.jpg",
         url: "https://www.amazon.in/Man-Called-Ove-life-affirming-bestseller/dp/1444775812",
         quantity: 1,
+        inStock: false,
+        fastDelivery: true,
         description: {
             author: {
                 name: 'Fredrik Backman',
@@ -40,6 +44,8 @@ export const productlist = [
         image: "https://m.media-amazon.com/images/I/41YXH3S5wrL._AC_UY218_.jpg",
         url: "https://www.amazon.in/Importance-Being-Earnest-Oscar-Wilde/dp/8175992859",
         quantity: 1,
+        inStock: true,
+        fastDelivery: true,
         description: {
             author: {
                 name: 'Oscar Wilde',
@@ -61,6 +67,8 @@ export const productlist = [
                 "200_QL40_FMwebp_.jpg",
         url: "https://www.amazon.in/Picture-Dorian-Gray-Oscar-Wilde/dp/8175993081",
         quantity: 1,
+        inStock: true,
+        fastDelivery: true,
         description: {
             author: {
                 name: 'Oscar Wilde',
@@ -82,6 +90,8 @@ export const productlist = [
                 "200_.jpg",
         url: "https://www.amazon.in/How-Think-Like-Roman-Emperor/dp/1250196620",
         quantity: 1,
+        inStock: true,
+        fastDelivery: false,
         description: {
             author: {
                 name: 'Donald Robertson',
@@ -106,6 +116,8 @@ export const productlist = [
                 "200_.jpg",
         url: "https://www.amazon.in/Stillness-Key-Ancient-Strategy-Modern/dp/1788162056",
         quantity: 1,
+        inStock: true,
+        fastDelivery: false,
         description: {
             author: {
                 name: 'Ryan Holiday',
@@ -125,6 +137,8 @@ export const productlist = [
                 "200_QL40_FMwebp_.jpg",
         url: "https://www.amazon.in/Brain-David-Eagleman/dp/1782116613",
         quantity: 1,
+        inStock: false,
+        fastDelivery: true,
         description: {
             author: {
                 name: 'David Eagleman',
@@ -145,6 +159,8 @@ export const productlist = [
                 "200_.jpg",
         url: "https://www.amazon.in/Untitled-Book-Jordan-B-Peterson/dp/024140763X",
         quantity: 1,
+        inStock: true,
+        fastDelivery: true,
         description: {
             author: {
                 name: 'Jordan B. Peterson',
@@ -163,6 +179,8 @@ export const productlist = [
         image: "https://m.media-amazon.com/images/I/71KSA4fswNL._AC_UY218_.jpg",
         url: "https://www.amazon.in/Beyond-Good-Evil-Friedrich-Nietzsche/dp/9350334984",
         quantity: 1,
+        inStock: false,
+        fastDelivery: false,
         description: {
             author: {
                 name: 'Friedrich Nietzsche',
@@ -182,6 +200,8 @@ export const productlist = [
         url: "https://www.amazon.in/Eloquent-JavaScript-3rd-Introduction-Programming/dp/159327" +
                 "9507",
         quantity: 1,
+        inStock: true,
+        fastDelivery: false,
         description: {
             author: {
                 name: 'Marijn Haverbeke',
@@ -200,6 +220,8 @@ export const productlist = [
                 "200_.jpg",
         url: "https://www.amazon.in/Gentleman-Moscow-Amor-Towles/dp/0099558785",
         quantity: 1,
+        inStock: false,
+        fastDelivery: true,
         description: {
             author: {
                 name: 'Amor Towles',
@@ -218,6 +240,8 @@ export const productlist = [
                 "200_QL40_FMwebp_.jpg",
         url: "https://www.amazon.in/Origin-Species-Charles-Darwin/dp/8172344880",
         quantity: 1,
+        inStock: false,
+        fastDelivery: true,
         description: {
             author: {
                 name: 'Charles Darwin',
@@ -239,6 +263,8 @@ export const productlist = [
                 "200_.jpg",
         url: "https://www.amazon.in/Theory-Everything-Stephen-Hawking/dp/8179925919",
         quantity: 1,
+        inStock: true,
+        fastDelivery: true,
         description: {
             author: {
                 name: 'Stephen Hawking',
@@ -257,6 +283,8 @@ export const productlist = [
                 "200_.jpg",
         url: "https://www.amazon.in/Factfulness-Reasons-Wrong-Things-Better/dp/1473637465",
         quantity: 1,
+        inStock: false,
+        fastDelivery: true,
         description: {
             author: {
                 name: 'Hans Rosling',
@@ -277,6 +305,8 @@ export const productlist = [
                 "200_.jpg",
         url: "https://www.amazon.in/Range-Key-Success-Performance-Education/dp/1509843523",
         quantity: 1,
+        inStock: true,
+        fastDelivery: true,
         description: {
             author: {
                 name: 'David Epstein',

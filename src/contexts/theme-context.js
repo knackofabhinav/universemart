@@ -6,12 +6,12 @@ const theme = {
     dark: {
         backgroundColor: 'black',
         color: 'white',
-        border: '1px solid white'
+        // border: "1px solid white"
     },
     light: {
         backgroundColor: 'white',
         color: 'black',
-        border: '1px solid black'
+        // boxShadow: '10px 5px 12px -4px rgba(141,136,136,0.64)'
     }
 }
 export const ThemeProvider = ({children}) => {

@@ -16,7 +16,43 @@ export const ProductListing = () => {
     return (
         <div style={isDark
             ? dark
-            : light}>
+            : light} className="container">
+            <fieldset>
+                <legend>Sort By</legend>
+                    <label>
+                        <input
+                        type="radio"
+                        name="sort"
+                        onClick={() => {dispatch({type: "PRICE_HIGH_TO_LOW"})}}
+                        />
+                        High To Low
+                    </label>
+                    <label>
+                        <input
+                        type="radio"
+                        name="sort" 
+                        onClick={() => {dispatch({type:'PRICE_LOW_TO_HIGH'})}}
+                        />
+                        Low to High
+                    </label>
+            </fieldset>
+            { /*<fieldset>
+                <legend> Filters </legend>
+                <label>
+                <input
+                    type="checkbox"
+                    onChange={() => dispatch({ type: "TOGGLE_INVENTORY" })}
+                />
+                Include Out of Stock
+                </label>
+                <label>
+                <input
+                    type="checkbox"
+                    onChange={() => dispatch({ type: "TOGGLE_DELIVERY" })}
+                />
+                Fast Delivery Only
+                </label>
+            </fieldset> */}
             <ul className="cardlisting">
                 {productlist.map((item) => {
                     return (

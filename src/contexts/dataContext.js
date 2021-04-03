@@ -57,13 +57,12 @@ const reducer = (state, action) => {
         case 'ADD_TO_WISHLIST':
             return {
                 ...state,
-                wishlist: 
-                    Array.from(new Set([
-                        ...state.wishlist,
-                        action.payload
-                    ])),
+                wishlist: Array.from(new Set([
+                    ...state.wishlist,
+                    action.payload
+                ])),
                 addedToWishlistToast: true
-                
+
             }
         case 'HIDE_WISHLIST_TOAST':
             return {
@@ -71,9 +70,11 @@ const reducer = (state, action) => {
                 addedToWishlistToast: false
             }
         case 'REMOVE_FROM_WISHLIST':
-            return{
+            return {
                 ...state,
-                wishlist: state.wishlist.filter(wishlisted => wishlisted.id !== action.payload.id)
+                wishlist: state
+                    .wishlist
+                    .filter(wishlisted => wishlisted.id !== action.payload.id)
             }
         case 'LOAD_THIS_ITEM_ON_PRODUCT_PAGE':
             return {
@@ -97,9 +98,24 @@ const reducer = (state, action) => {
                 route: 'wishlist'
             }
         case 'CHANGE_ROUTE_TO_CHECKOUT':
-            return{
+            return {
                 ...state,
                 route: 'checkout'
+            }
+        case 'PRICE_HIGH_TO_LOW':
+            return {
+                ...state,
+                productlist: [...state.productlist].sort((a, b) => b.price - a.price)
+            }
+        case 'PRICE_LOW_TO_HIGH':
+            return {
+                ...state,
+                productlist: [...state.productlist].sort((a, b) => a.price - b.price)
+            }
+        case 'TOGGLE_INVENTORY':
+            return {
+                ...state,
+                productlist: [...state.productlist].filter(item => item.inStock === false)
             }
         default:
             break;
@@ -115,7 +131,7 @@ const initialState = {
     wishlist: [],
     addedToCartToast: false,
     totalPrice: 0,
-    addedToWishlistToast: false
+    addedToWishlistToast: false,
 }
 
 export const DataProvider = ({children}) => {
